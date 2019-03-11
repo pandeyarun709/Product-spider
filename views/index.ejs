@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+            crossorigin="anonymous">
+         <link>
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+         crossorigin="anonymous">
+
+        <title><i class="fab fa-free-code-camp"></i>FreeCode Camp</title>
+    </head>
+ <body>
+      <div class="container">
+          <div class="row">
+                <% users.forEach((user){ %>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="<%= user.avtar %>" class="card-img-top" alt="<%= user.username%>">
+                            <div class="card-body">
+                                <h5 class="card-title"> <%= user.username %></h5>
+                                <p class="card-text"> <%= user.likes %></p>
+                             </div>
+                         </div>
+                    </div>  
+                <% }); %>
+
+          </div>
+          
+
+      </div>
+ </body> 
+
+</html>
