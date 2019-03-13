@@ -1,0 +1,14 @@
+header {
+    margin: 0 auto;
+    display: flex;
+}
+
+
+i {
+    display: inline;
+    font-size: 2em;
+    color: green;
+}
+
+
+
