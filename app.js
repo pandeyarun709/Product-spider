@@ -1,63 +1,86 @@
-const request  =   require('request-promise'),
+const request  =   require('request'),
       cheerio  =   require('cheerio'),
       express  =   require('express'),
       app      =   express()
+      
 
-let userData = [];
+ let $;     
+app.use(express.static("public"));     
 
-const options = {
-    url : `https://www.freecodecamp.org/forum/directory_items?period=weekly&order=likes_received&_=1552317943279`,
-    json : true
-}
+var urlPaytm  = `https://paytmmall.com/shop/search?q=`;
+var urlAmazon =  `https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=`;
 
-request(options, (data) =>{
-            
-           // console.log("data ",data.directory_items[0].user);  
-           //fetching user details 
-            data.directory_items.forEach(user => {
-               // console.log(user);
-                userData.push({
-                    username : user.user.username,
-                    avatar : user.user.avatar_template ,
-                    likes : user.likes_received
-                })
-            });
 
-            //getChallengeCompleted();
-        });
+let products = [];
+//dummy data
+let prod = {
+   // productName : 'Nike',
+    img : `https://assetscdn1.paytm.com/images/catalog/product/S/SP/SPONIKE-STRIKE-KESH8299226A8E57D8/0..jpg?imwidth=282&impolicy=hq`,
+    link : `https://paytmmall.com/nike-strike-football-size-5-SPONIKE-STRIKE-KESH8299226A8E57D8-pdp?product_id=220528122&src=search-grid&tracker=organic%7C21426%7Cnike%20soccer%7Cgrid%7CSearch_experimentName%3Dnew_ranking%7C%7C1%7Cnew_ranking&site_id=2&child_site_id=6`
+};
+
+products.push(prod);
+
+// request(urlAmazon+"jeans" , (error, response, body)=>{
+//     if(!error && response.statusCode == 200){
         
-
-// function getChallengeCompleted()
-// {
-//     var i=0;
-//     function next() {
-//        if(i < userData.length) {
-//             const options = {
-//                 url : `https://www.freecodecamp.org/`+ userData[i].username,
-//                 transform : body => cheerio.load(body)
-//             }
-
-//             request(options)
-//                 .then( function ($) {
-//                     const checkAccount = $('h1.landing-heading').length == 0;
-//                     const challengePassed = checkAccount ? $('tbody tr').length : "unknown";
-                    
-//                     console.log(challengePassed);
-//                     userData[i].challenges = challengePassed;
-//                     ++i;
-//                     return next();
-//                 })
+//         $ = cheerio.load(body);
+//        let allItems = $('ul');
+//       allItems.each( function(index) {
+//          var a = $('ul').children().eq(index).find('a').attr('href');
+//          var im = $('ul').children().eq(index).find('img').attr('src');
+//        //  var productName = $('ul').children().eq(index).find('span .a-color-base').text();
+//       //   var price = $('ul').children().eq(index).find('span .currencyINR').text();
+//           products.push({
+//              img : im,
+//              link : a
+//           });
          
-//        }
+//        });
+     
+      
+//       }   
+//     else {
+
+//        console.log(error);
 //     }
+// });
 
-//     return next();
-// }        
 
+console.log(products);
 app.get("/" , (req , res)=> {
-   res.render("index.ejs" , {users : userData});
+  
+   request(urlAmazon+"jeans" , (error, response, body)=>{
+      if(!error && response.statusCode == 200){
+          
+          $ = cheerio.load(body);
+         let allItems = $('ul');
+         var a = $('ul').children().eq(0).find('a').attr('href');
+         var im = $('ul').children().eq(0).find('img').attr('src');
+
+         console.log(a);
+         console.log(im);
+
+        allItems.each( function(index) {
+           var a = $('ul').children().eq(index).find('a').attr('href');
+           var im = $('ul').children().eq(index).find('img').attr('src');
+         //  var productName = $('ul').children().eq(index).find('span .a-color-base').text();
+        //   var price = $('ul').children().eq(index).find('span .currencyINR').text();
+            products.push({
+               img : im,
+               link : a
+            });
+           
+         });
+        
+         res.render("index.ejs" , {products : products});
+      }else {
+         console.log(error);
+      }
+  });
+
 });
 
-app.listen(8079 , ()=>{
+app.listen(8002, ()=>{
      console.log("Server start");
 });
