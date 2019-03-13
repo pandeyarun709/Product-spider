@@ -7,28 +7,39 @@
          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
          crossorigin="anonymous">
-
-        <title><i class="fab fa-free-code-camp"></i>FreeCode Camp</title>
+        <link rel="stylesheet" href="/index.css">
+        <title>FreeCode Camp</title>
     </head>
  <body>
+     <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="opacity:0.9; ">
+                    <a class="navbar-brand" href="/">
+                        <span><i class="fab fa-free-code-camp"></i></span>
+                        Product Spider
+                    </a>
+                      <form class="form-inline my-2 my-lg-0" action="/" method="POST">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="movie">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      </form>
+                    </div>
+              </nav>
+     </header>
+
+
       <div class="container">
-          <div class="row">
-                <% users.forEach((user){ %>
-                    <div class="col-md-3">
-                        <div class="card" style="width: 18rem;">
-                            <img src="<%= user.avtar %>" class="card-img-top" alt="<%= user.username%>">
-                            <div class="card-body">
-                                <h5 class="card-title"> <%= user.username %></h5>
-                                <p class="card-text"> <%= user.likes %></p>
-                             </div>
-                         </div>
-                    </div>  
-                <% }); %>
-
-          </div>
+            <div class="row"> 
+          <% products.forEach( (prod) => { %>
+            
+              <div class="col-3">
+                <a href="<%=prod.link%>">
+                    <img src="<%=prod.img%>">
+                 </a>
+             </div>
+            
+            <% }) %> 
+        </div>
           
-
-      </div>
+    </div>
  </body> 
 
 </html>
