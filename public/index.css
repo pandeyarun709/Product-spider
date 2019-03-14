@@ -8,7 +8,17 @@ i {
     display: inline;
     font-size: 2em;
     color: green;
+    font-weight: 200;
 }
 
+.container {
+    margin-top: 6%;
+}
 
+#col-margin {
+    margin-top: 2%; 
+}
 
+body {
+    background-color: #fdfcff;
+}
