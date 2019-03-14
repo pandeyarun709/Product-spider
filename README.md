@@ -15,8 +15,8 @@ Search product of various site like amazon , flipkart and paytm mall at one plac
   * npm install
   * node app.js
  ```
-# open this link on your browser :- localhost:8002
+### open this link on your browser :- localhost:8002
 
 ## THANK YOU
 
-### IN PROGRESS
+#  NOTE :- PROJECT IN PROGRESS( New features coming soon)
