@@ -7,16 +7,16 @@ Search product of various site like amazon , flipkart and paytm mall at one plac
 ### Steps to run Product spider on your local machine
 
  #  Prequesties
-   *  [Nodejs]()
-   *  [npm]()
+   *  [Nodejs](https://nodejs.org/en/)
+   *  [npm](https://www.npmjs.com/get-npm)
 
- # Steps
+ # Run following commands in product-spider directory
  ```
   * npm install
   * node app.js
-  * on browser run this http : localhost:8002 
  ```
+# open this link on your browser :- localhost:8002
 
-
+## THANK YOU
 
 ### IN PROGRESS
