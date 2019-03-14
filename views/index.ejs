@@ -8,12 +8,14 @@
          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
          crossorigin="anonymous">
         <link rel="stylesheet" href="/index.css">
+        
         <title>Product Spider</title>
     </head>
  <body>
      <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="opacity:0.9; ">
                     <a class="navbar-brand" href="/">
+                        <!-- <span><i class="fab fa-free-code-camp"></i></span> -->
                         <span><i class="fab fa-free-code-camp"></i></span>
                         Product Spider
                     </a>
@@ -23,23 +25,42 @@
                   </form>
                     
               </nav>
-     </header>
+    </header>
 
 
-      <div class="container">
-            <div class="row"> 
-          <% products.forEach( (prod) => { %>
-            
-              <div class="col-3">
+<section class="container">
+   <!-- ############################### Amazon products #################################### -->
+    <div>
+      <h1><i id="amz" class="fab fa-amazon"></i>Amazon Products</h1>  
+      <div class="row"> 
+          <% amazon.forEach( (prod) => { %>
+            <div id="col-margin" class="col-3">
                 <a href="<%=prod.link%>">
                     <img src="<%=prod.img%>">
-                 </a>
-             </div>
-            
+                </a>
+            </div>
+                      
             <% }) %> 
         </div>
-          
     </div>
- </body> 
+       
+    <!-- ############################# Paytm products ########################################## -->
+    <div>
+      <h1>Paytm Products</h1>   
+      <div class="row"> 
+         <% paytm.forEach( (prod) => { %>
+            <div id="col-margin" class="col-3">
+                <a href="<%=prod.link%>">
+                 <img src="<%=prod.img%>">
+                </a>
+            </div>
+                   
+         <% }) %> 
+        </div>
+     </div>   
+
+  </section>
+</body> 
 
 </html>
+
