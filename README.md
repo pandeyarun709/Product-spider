@@ -1,4 +1,4 @@
-## Product-spider
+# Product-spider
 
 ```
 Search product of various site like amazon , flipkart and paytm mall at one place
@@ -6,11 +6,11 @@ Search product of various site like amazon , flipkart and paytm mall at one plac
 
 ### Steps to run Product spider on your local machine
 
- #  Prequesties
+ #  Prerequisites
    *  [Nodejs](https://nodejs.org/en/)
    *  [npm](https://www.npmjs.com/get-npm)
 
- # Run following commands in product-spider directory
+ ## Run following commands in product-spider directory
  ```
   * npm install
   * node app.js
